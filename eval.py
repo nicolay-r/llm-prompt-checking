@@ -25,6 +25,9 @@ df.insert(len(df.columns), "relation_type", None)
 df.insert(len(df.columns), "entity_values", None)
 
 rel_types_count = Counter()
+
+acc_results = {}
+
 for row_id, response in tqdm(assess(sqlite_output_filepath=join(dir, "answers.sqlite3"), table_name=table_name)):
 
     answer = response.split('.')[0].lower()
@@ -61,6 +64,19 @@ for row_id, response in tqdm(assess(sqlite_output_filepath=join(dir, "answers.sq
     df.at[row_index, "entity_values"] = ",".join(values)
 
     rel_types_count[rel_type] += 1
+    if rel_type not in acc_results:
+        acc_results[rel_type] = [0, 0]
+    acc_results[rel_type][0 if answer_sent == "pos" else 1] += 1
+
+
+def calc_acc(v):
+    t, f = v
+    return round(float(t)/float(t+f), 2)
+
 
 print(rel_types_count)
+for r_type, r_value in sorted(list(acc_results.items()), key=lambda item: calc_acc(item[1]), reverse=True):
+    result = calc_acc(r_value)
+    count = rel_types_count[r_type]
+    print(f"{r_type} (ACC): {result} ({count})")
 df.to_csv(join(dir, "responses-train-0.csv"))

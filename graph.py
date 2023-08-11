@@ -183,35 +183,37 @@ if __name__ == '__main__':
     # For each relation type
     for r in tqdm(set(data["relation_type"]), desc="Build graph per every relation type"):
 
-        data_single_type = data[data["relation_type"] == r]
+        for b in ["relations_pretty_value", "relations_pretty_type"]:
 
-        graph = make_graph_from_relations_array(
-            relations=data_single_type["relations_pretty_value"],
-            entity_values=data_single_type["entity_values"],
-            entity_types=data_single_type["entity_types"],
-            min_links=1,
-            weights=True
-        )
+            data_single_type = data[data["relation_type"] == r]
 
-        graph = graphs_operations(
-            graph_A=graph, graph_B=graph, operation="SAME",
-            # we could change this parameter in between [0.001 до 0.999]
-            min_links=0.005
-        )
+            graph = make_graph_from_relations_array(
+                relations=data_single_type[b],
+                entity_values=data_single_type["entity_values"],
+                entity_types=data_single_type["entity_types"],
+                min_links=1,
+                weights=True
+            )
 
-        if not exists(out_src_dir):
-            os.makedirs(out_src_dir)
+            graph = graphs_operations(
+                graph_A=graph, graph_B=graph, operation="SAME",
+                # we could change this parameter in between [0.001 до 0.999]
+                min_links=0.001
+            )
 
-        # open(join(out_dir, f"graph_force_{r}.json"), "w").write(json.dumps(graph, ensure_ascii=False).encode('utf8').decode())
+            if not exists(out_src_dir):
+                os.makedirs(out_src_dir)
 
-        radial_src = join(out_src_dir, f"graph_radial_{r}.json")
-        open(radial_src, "w").write(json.dumps(graphToRadial(graph), ensure_ascii=False).encode('utf8').decode())
+            # open(join(out_dir, f"graph_force_{r}.json"), "w").write(json.dumps(graph, ensure_ascii=False).encode('utf8').decode())
 
-        html_out_filepath = join(out_d3_dir, f"graph_radial_{r}.html")
-        with open("data/vis_graphRadial.html", "r") as f_in:
-            html_content = f_in.read()
-            src_radial_filepath = join(src_subdir, f"graph_radial_{r}.json")
-            html_content = html_content.replace("<SOURCE_JSON_FILEPATH>", src_radial_filepath)
-            with open(html_out_filepath, "w") as f_out:
-                f_out.write(html_content)
-            
+            out_filename = f"graph_radial_{r}-{b}"
+            radial_src = join(out_src_dir, out_filename + ".json")
+            open(radial_src, "w").write(json.dumps(graphToRadial(graph), ensure_ascii=False).encode('utf8').decode())
+
+            html_out_filepath = join(out_d3_dir, out_filename + ".html")
+            with open("data/vis_graphRadial.html", "r") as f_in:
+                html_content = f_in.read()
+                src_radial_filepath = join(src_subdir, out_filename + ".json")
+                html_content = html_content.replace("<SOURCE_JSON_FILEPATH>", src_radial_filepath)
+                with open(html_out_filepath, "w") as f_out:
+                    f_out.write(html_content)
