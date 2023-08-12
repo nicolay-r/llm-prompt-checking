@@ -180,8 +180,10 @@ if __name__ == '__main__':
     out_d3_dir = join(dir, "graph")
     data = pd.read_csv(join(dir, "responses-train-0.csv"))
 
+    relation_types = set([t for t in data["relation_type"] if isinstance(t, str)])
+
     # For each relation type
-    for r in tqdm(set(data["relation_type"]), desc="Build graph per every relation type"):
+    for r in tqdm(relation_types, desc="Build graph per every relation type"):
 
         for b in ["relations_pretty_value", "relations_pretty_type"]:
 
