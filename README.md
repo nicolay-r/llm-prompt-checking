@@ -7,6 +7,8 @@ Please refer to the related findings and presentation (RU language) for greater 
 
 [![YouTube](http://i.ytimg.com/vi/zeKg1MAQrYA/hqdefault.jpg)](https://www.youtube.com/watch?v=zeKg1MAQrYA)
 
+**Presentation**: https://nicolay-r.github.io/website/data/report_llm2023-nerel.pdf
+
 ## Usage
 
 This project shares three main scripts:
@@ -23,6 +25,8 @@ We refer to the [NEREL collection](https://github.com/nerel-ds/NEREL) which is u
 We experiment with `OpenAI/ChatGPT-3.5-0613` model.
 
 ### Results
+
+Results are shortly higlighted in [the related presentation](https://nicolay-r.github.io/website/data/report_llm2023-nerel.pdf)
 
 Top 3 relation types are bolded:
 
