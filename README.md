@@ -22,7 +22,9 @@ We refer to the [NEREL collection](https://github.com/nerel-ds/NEREL) which is u
 
 We experiment with `OpenAI/ChatGPT-3.5-0613` model.
 
-Results (Top 3 realtion types are bolded):
+### Results
+
+Top 3 relation types are bolded:
 
 |Relation Type |Accuracy | Number of Relations |
 |-|-|-|
