@@ -14,7 +14,7 @@ This project shares three main scripts:
 2. `graph.py` -- script that adopts D3JS library for visualizing radial graphs that highlights: alignment 🟢 and misalignment 🔴.
 3. `launch.py` -- launches the application of the LLM model towards the composed input prompts to perform **binary semantic relations classification** of knonw semantic relations (present / absent, i.e. agree or disagree with experts annotaiton)
 
-> **Update 08/08/2024: ⚠️ **Obsolete** This project adopts `RevGPT` API, which is obsolete at present. Please use the other project such as [QuickCoT](https://github.com/nicolay-r/quick_cot) for inferring other LLM models useing the official API.
+> **Update 08/08/2024:** ⚠️ This project adopts `RevGPT` API, which is obsolete at present. Please use the other project such as [QuickCoT](https://github.com/nicolay-r/quick_cot) for inferring other LLM models useing the official API.
 
 ## Experiment 
 
