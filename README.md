@@ -1,4 +1,4 @@
-# LLM Promp Checking Demo
+# LLM Reasoning Checking in Semantic Relation Extraction
 ![](https://img.shields.io/badge/Python-3.9-brightgreen.svg)
 
 This project aimed at assessing advances in generative large language models in the domain of Information Retrieval and Relation **Extraction in particular**.
