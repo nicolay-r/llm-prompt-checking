@@ -28,7 +28,9 @@ We experiment with `OpenAI/ChatGPT-3.5-0613` model.
 
 Results are shortly higlighted in [the related presentation](https://nicolay-r.github.io/website/data/report_llm2023-nerel.pdf)
 
-Top 3 relation types are bolded:
+Top 3 relation types are bolded.
+
+High: 70-100% agreement
 
 |Relation Type |Accuracy | Number of Relations |
 |-|-|-|
@@ -45,6 +47,11 @@ Top 3 relation types are bolded:
 |MEMBER_OF |0.72|218|
 |WORKS_AS |0.71|3053|
 |LOCATED_IN |0.71|611|
+
+Medium: 70-50% agreement
+
+|Relation Type |Accuracy | Number of Relations |
+|-|-|-|
 |TAKES_PLACE_IN |0.7|1222|
 |SUBEVENT_OF |0.68|212|
 |DATE_FOUNDED_IN |0.68|44|
@@ -58,6 +65,11 @@ Top 3 relation types are bolded:
 |PENALIZED_AS |0.54|123|
 |WORKPLACE |0.53|804|
 |PARENT_OF |0.5|200|
+
+Low: Less than 40% agreement
+
+|Relation Type |Accuracy | Number of Relations |
+|-|-|-|
 |SIBLING |0.48|86|
 |SPOUSE |0.47|119|
 |PARTICIPANT_IN |0.42|2764|
