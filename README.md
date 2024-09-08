@@ -5,7 +5,7 @@ This project aimed at assessing advances in generative large language models in 
 
 Please refer to the related findings and presentation (RU language) for greater details:
 
-[![YouTube](http://i.ytimg.com/vi/zeKg1MAQrYA/hqdefault.jpg)](https://www.youtube.com/watch?v=zeKg1MAQrYA)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/zeKg1MAQrYA)](https://youtu.be/zeKg1MAQrYA)
 
 **Presentation**: https://nicolay-r.github.io/website/data/report_llm2023-nerel.pdf
 
