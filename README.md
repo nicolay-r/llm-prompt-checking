@@ -1,6 +1,8 @@
 # LLM Reasoning Checking in Semantic Relation Extraction
 ![](https://img.shields.io/badge/Python-3.9-brightgreen.svg)
 
+> **Update November 01 2024:** ⭐ Implemented a separated [bulk-chain](https://github.com/nicolay-r/bulk-chain) project for handling massive amount of prompts with CoT. This concept was used in this studies.
+
 This project aimed at assessing advances in generative large language models in the domain of Information Retrieval and Relation **Extraction in particular**.
 
 Please refer to the related findings and presentation (RU language) for greater details:
